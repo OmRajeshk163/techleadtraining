@@ -41,7 +41,7 @@
 
 @media screen and (max-width: 768px) {
   .heroBanner {
-    margin: 40px 6px;
+    margin: 40px 20px;
     /* margin-bottom: 94px; */
     grid-template-columns: 1fr;
   }

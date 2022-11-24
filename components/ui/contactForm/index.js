@@ -127,7 +127,7 @@ const ContactForm = () => {
               )}
             </label>
             <label className={styles.enquiryFormLabel} htmlFor="yearsOfExp">
-              Years of Experience
+              Years of Experience*
               <input
                 id="yearsOfExp"
                 name="yearsOfExp"

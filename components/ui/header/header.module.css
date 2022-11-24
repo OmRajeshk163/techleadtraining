@@ -1,0 +1,250 @@
+.mainHeader {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: var(--color-White);
+  will-change: transform;
+  font-family: var(--font-family-2);
+  /* box-shadow: 0px 0px 4px 0px var(--color-LightGray); */
+}
+
+.navContainer {
+  display: flex;
+  padding: 15px 120px;
+  align-items: center;
+  justify-content: space-between;
+  /* box-shadow: 0px 2px 8px 5px rgba(0, 0, 0, 0.1); */
+}
+
+.navItemsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navContainer > div:nth-child(1) {
+  min-width: 158px;
+  height: 40px;
+}
+
+.navLink {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 16px;
+  margin: 12px 0;
+}
+
+.navDropdownContainer {
+  margin-right: 50px;
+}
+
+.navDropdownContainer:last-child {
+  margin-right: 32px;
+}
+
+.navItems {
+  display: flex;
+  margin-left: 32px;
+}
+
+.menuIcon {
+  display: none;
+}
+
+.navDropdownContainer {
+  position: relative;
+  cursor: pointer;
+}
+
+.navDropdownContent,
+.navDropdownContentHidden {
+  display: none;
+}
+
+.navDropdownContainer:hover > .navDropdownContent,
+.navDropdownContent:hover {
+  position: absolute;
+  display: block;
+  top: 40px;
+  left: 0;
+  z-index: 2;
+}
+
+.underLinedLink {
+  display: flex;
+  flex-direction: column;
+}
+
+.underLinedLink a {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 18px;
+  color: var(--color-DarkCerulean);
+  text-decoration: underline;
+  display: inline-block;
+  padding-top: 6px;
+}
+
+.dropdownCard {
+  padding: 16px;
+  width: 232px;
+  background-color: var(--color-White);
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+.dropdownCard::before {
+  content: " ";
+  top: 0;
+  left: 0;
+  width: 92px;
+  height: 2px;
+  position: absolute;
+  border-radius: 0px 4px 4px 0px;
+  background-color: var(--color-DarkCerulean);
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+.dropdownCardTitle {
+  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: var(--color-SpanishGray);
+}
+
+.dropdownCardItem {
+  margin-top: 16px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.dropdownCardItem:nth-child(2) {
+  margin-top: 8px;
+}
+
+.dropdownCardContent {
+  margin-left: 10px;
+}
+
+.dropdownCardItemTitle {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 22px;
+  margin: 0;
+}
+
+.dropdownCardItemDescription {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 18px;
+  color: var(--color-Onyx);
+  margin: 0;
+}
+
+.contactUsCTA {
+  background-color: var(--color-Black);
+  color: var(--color-White);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 35px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1062px) {
+  .navContainer {
+    padding: 13px 40px;
+  }
+
+  .navDropdownContainer {
+    margin-right: 32px;
+  }
+
+  .navDropdownContainer:last-child {
+    margin-right: 16px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contactUsCTAContainer {
+    display: none;
+  }
+
+  div.navItems,
+  .navItemsContainer {
+    display: none;
+  }
+
+  .menuIcon {
+    display: block;
+    cursor: pointer;
+  }
+
+  .navContainer {
+    padding: 13px 24px;
+    justify-content: space-between;
+  }
+
+  .fixedMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: var(--color-White);
+    z-index: 9;
+    max-height: 65vh;
+    width: 85%;
+    max-width: 420px;
+    padding: 20px;
+    overflow: auto;
+    border-bottom-left-radius: 8px;
+    box-shadow: 0px 0px 6px 0px grey;
+    overscroll-behavior: contain;
+  }
+
+  .fixedMenuHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .fixedMenuHeaderTitle {
+    margin: 0;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 28px;
+  }
+
+  .fixedMenuCloseBtn {
+    cursor: pointer;
+  }
+
+  .fixedMenu .navDropdownContainer {
+    margin-left: 2px;
+    margin-bottom: 24px;
+  }
+
+  .fixedMenu .navDropdownContent,
+  .navDropdownContent:hover {
+    position: static !important;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  .navLink {
+    display: none;
+  }
+
+  .fixedHeaderMenuAccordion {
+    margin-top: 12px;
+    margin-bottom: 24px;
+  }
+
+  .fixedHeaderMenuAccordion span {
+    display: none;
+  }
+}
