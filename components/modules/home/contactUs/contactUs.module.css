@@ -1,0 +1,63 @@
+.contactUsContainer {
+  position: relative;
+  padding: 3rem;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  max-width: 1024px;
+  align-items: center;
+  user-select: none;
+  gap: 16px;
+  margin: 4rem 1rem;
+  background-color: var(--color-Cultured);
+}
+.imageContainer {
+  position: absolute;
+  left: 0px;
+  top: -1.43rem;
+  width: 15rem;
+  height: 12rem;
+  margin-bottom: 25px;
+}
+.contactInfoWrap {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.contacts {
+  font-family: var(--font-family-4);
+  color: var(--color-Mandy);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 2.5rem;
+  flex: 1;
+}
+.contactInfolbl {
+  flex: 2;
+  text-align: right;
+  font-family: var(--font-family-4);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 2.5rem;
+  margin-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .imageContainer {
+    position: relative;
+  }
+  .contactInfoWrap {
+    flex-direction: column;
+  }
+  .contactInfolbl {
+    margin-right: 0;
+  }
+  .imageContainer {
+    width: 20rem;
+    height: 20rem;
+  }
+}

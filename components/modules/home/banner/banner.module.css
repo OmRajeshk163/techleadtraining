@@ -1,0 +1,58 @@
+.heroBanner {
+  margin: 0px 120px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin-top: 80px;
+  justify-items: center;
+}
+
+.heroBannerText {
+  font-weight: 800;
+  font-size: 3.25rem;
+  line-height: 68px;
+  margin: 0;
+  margin-bottom: 26px;
+  font-family: var(--font-family-4);
+}
+.heading {
+  font-size: 1rem;
+  line-height: 40px;
+  font-family: var(--font-family-2);
+  color: var(--color-Orange);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 992px) {
+  .heroBannerText {
+    text-align: center;
+  }
+
+  .heroBanner {
+    margin: 0px 60px;
+    grid-template-columns: 1fr;
+    margin-bottom: 75px;
+    justify-items: center;
+    gap: 32px;
+    margin-top: 32px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    margin: 40px 5px;
+    margin-bottom: 94px;
+    grid-template-columns: 1fr;
+  }
+
+  .banner {
+    margin: 0 32px;
+  }
+
+  .heroBannerText {
+    font-size: 2rem;
+    line-height: 42px;
+    text-align: center;
+  }
+}

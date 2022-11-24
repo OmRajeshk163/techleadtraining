@@ -1,26 +1,119 @@
+/* Colors */
+/* color names picked from https://www.color-name.com/ based on hex code */
+:root {
+  --font-family-1: Poppins;
+  --font-family-2: "Montserrat";
+  --font-family-3: "roc-grotesk";
+  --font-family-4: "roc-grotesk-wide";
+  --color-Black: #000000;
+  --color-White: #ffffff;
+  --color-Anti-Flash-White: #f1f5f5;
+  --color-Orange: #ff6400;
+  --color-BleuDeFrance: #388af7;
+  --color-Spanish-Gray: #979797;
+  --color-Blue-Crayola: #116eeb;
+  --color-American-Yellow: #ebbe00;
+  --color-Bubbles: #e4faff;
+  --color-BrandeisBlue: #006dee;
+  --color-GoldenPoppy: #ffc400;
+  --color-VividSkyBlue: #00ccff;
+  --color-VividSkyBlue-2: #00d6ff;
+  --color-Maize: #ffc947;
+  --color-LimeGreen: #45c646;
+  --color-SpanishGray: #9b9b9b;
+  --color-BrightGray: #e9e9e9;
+  --color-Kournikova: #ffe977;
+  --color-ChineseSilver: #c9c9c9;
+  --color-FreshAir: #b9dcff;
+  --color-CaribbeanGreen: #00d7a0;
+  --color-BlueBerry: #4c92ff;
+  --color-CoolBlack: #002b67;
+  --color-TangerineYellow: #ffce00;
+  --color-Prussian-Blue: #002b67;
+  --color-AliceBlue: #f1fbff;
+  --color-DarkCerulean: #023e79;
+  --color-YankeesBlue: #16133e;
+  --color-DarkElectricBlue: #5a7184;
+  --color-Azure: #007bff;
+  --color-Quartz: #4a4a4a;
+  --color-White: #ffffff;
+  --color-Flesh: #ffe7d1;
+  --color-HoneyDew: #ebfff3;
+  --color-DarkJungleGreen: #121b25;
+  --color-Cultured: #f4f4f4;
+  --color-Alto: #d9d9d9;
+  --color-SpanishGray: #979797;
+  --color-Onyx: #383838;
+  --color-wildSand: #f5f4f4;
+  --color-Boulder: #7d7d7d;
+  --color-Gallery: #ececec;
+  --color-RegalBlue: #023e79;
+  --color-WhiteLilac: #f4f7f9;
+  --color-Haiti: #16133e;
+  --color-whiteSolid: #ffffff;
+  --color-LavenderMist: #e5eaf4;
+  --color-TitanWhite: #e8f0fb;
+  --color-MediumGrey: #7d7d7d;
+  --color-Alabaster: #f5fbff;
+  --color-Water: #d1e7ff;
+  --color-DavysGrey: #565454;
+  --color-solitude: #ebf7fe;
+  --color-dash: #c9cdd8;
+  --color-border: #444444;
+  --color-LightGray: #57595e;
+  --color-Ebony: #101b26;
+  --color-TrueBlue: #0969da;
+  --color-Corn: #ebbe00;
+  --color-BlueRibbon: #116eeb;
+  --color-Red: #ff0000;
+  --color-Aqua: #00ccff;
+  --color-Sunshine: #ffc947;
+  --color-Mandy: #e85757;
+  --color-CarribianGreen: #00cd96;
+  --color-Silver: #cbcbcb;
+  --color-Gainsboro: #dadada;
+  --color-Safety-Orange: #ff6600;
+  --color-Moccasin: #ffe7b9;
+  --color-Old-Lace: #fff7e7;
+  --color-PersianGreen: #0ab88b;
+  --color-Bubbles2: #e8fbff;
+  --color-Bubbles3: #daf5fc;
+  --selectedTabLength: 6.67rem;
+  --boxShadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  --selectedTabLength: 6.67rem;
+}
+
 html,
-body {
+body,
+p {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
+  font-display: auto;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  display: inline-block;
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+img {
+  max-width: 100%;
+}
+
+main {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 }

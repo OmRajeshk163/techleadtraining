@@ -1,0 +1,27 @@
+.copyRightBlock {
+  display: flex;
+  background-color: black;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: var(--color-BrightGray);
+}
+
+.copyRightBlock p {
+  margin: 0px 20px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.privacyPolicy {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .copyRightBlock {
+    justify-content: center;
+  }
+}

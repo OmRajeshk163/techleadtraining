@@ -1,0 +1,126 @@
+.trainingDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  align-items: center;
+  user-select: none;
+  gap: 16px;
+  margin: 3rem 1rem;
+}
+.detailsDecsContainer {
+  background-color: var(--color-Old-Lace);
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 1.56rem 2.18rem 2.18rem 2.18rem;
+}
+.detailsContainer {
+  width: 60%;
+}
+.detailsTitle,
+.priceTitle {
+  font-family: var(--font-family-4);
+  font-size: 2.37rem;
+  font-weight: 700;
+  line-height: 5rem;
+}
+.learnItem {
+  font-family: var(--font-family-2);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.learningWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.learnSchedulecontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--color-Moccasin);
+  border-radius: 8px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.learnSchedulecontainer > p {
+  font-family: var(--font-family-4);
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 38px;
+}
+.learnSchedulecontainer > p > span {
+  color: var(--color-Mandy);
+}
+.priceItemContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 1.8rem;
+  border: 1px solid var(--color-Gainsboro);
+  border-radius: 8px;
+}
+.priceContainer {
+  width: 40%;
+}
+.priceItemTitle {
+  font-family: var(--font-family-2);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.62rem;
+}
+.priceItemAmount {
+  font-family: var(--font-family-4);
+  color: var(--color-BleuDeFrance);
+  font-size: 3.12rem;
+  font-weight: 700;
+  line-height: 3rem;
+  display: inline;
+}
+.personText {
+  display: inline;
+  font-family: var(--font-family-4);
+  color: var(--color-BleuDeFrance);
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 20px;
+}
+.priceItemWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  .learnSchedulecontainer > p {
+    font-size: 0.75rem;
+    line-height: 14px;
+  }
+  .learningWrap {
+    flex-direction: column;
+  }
+  .detailsContainer,
+  .priceContainer {
+    width: 100%;
+  }
+  .detailsTitle,
+  .priceTitle {
+    line-height: 3rem;
+  }
+}
+@media (max-width: 428px) {
+  .learnSchedulecontainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+@media (max-width: 400px) {
+  .learnSchedulecontainer > p {
+    font-size: 0.65rem;
+  }
+}

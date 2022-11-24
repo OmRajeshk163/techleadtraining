@@ -1,0 +1,90 @@
+.trainersContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
+  align-items: center;
+  user-select: none;
+  gap: 16px;
+  margin: 3rem 1rem;
+}
+.trainersTitle {
+  font-family: var(--font-family-4);
+  font-size: 2.375rem;
+  font-weight: 700;
+  line-height: 10rem;
+}
+.trainerItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.trainerItem:nth-child(odd) {
+  margin-bottom: 4rem;
+}
+.trainerItem:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.imageContainer {
+  flex-basis: 40%;
+  position: relative;
+  /* width: 100%; */
+  height: 25rem;
+  margin-bottom: 25px;
+}
+
+.descContainer {
+  flex-basis: 60%;
+  padding: 2rem;
+}
+.trainerName {
+  font-family: var(--font-family-4);
+  font-size: 2.375rem;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.trainerDesignation {
+  font-family: var(--font-family-2);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 2.5rem;
+  color: var(--color-Safety-Orange);
+}
+.trainerDesc {
+  font-family: var(--font-family-2);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 25px;
+}
+.iconDesignationwrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.linkedInIncon {
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .trainerItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .trainersTitle {
+    line-height: 3rem;
+  }
+  .trainerItem:nth-child(even) {
+    flex-direction: column;
+  }
+  .imageContainer {
+    flex-basis: auto;
+    width: 100%;
+    height: 25rem;
+  }
+  .descContainer {
+    flex-basis: 100%;
+  }
+}
