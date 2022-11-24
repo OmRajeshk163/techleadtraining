@@ -26,7 +26,7 @@
 
 @media screen and (max-width: 992px) {
   .heroBannerText {
-    text-align: center;
+    /* text-align: center; */
   }
 
   .heroBanner {
@@ -41,18 +41,18 @@
 
 @media screen and (max-width: 768px) {
   .heroBanner {
-    margin: 40px 5px;
-    margin-bottom: 94px;
+    margin: 40px 6px;
+    /* margin-bottom: 94px; */
     grid-template-columns: 1fr;
   }
 
   .banner {
-    margin: 0 32px;
+    margin: 0;
   }
 
   .heroBannerText {
     font-size: 2rem;
     line-height: 42px;
-    text-align: center;
+    /* text-align: center; */
   }
 }

@@ -47,7 +47,6 @@ const ContactForm = () => {
       // reCaptcha: value,
     }));
   };
-  console.log("errors.yearsOfExp", errors);
   return (
     <>
       <section className={styles.contactFormContainer} id="contact-form">
