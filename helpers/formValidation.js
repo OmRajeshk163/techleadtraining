@@ -34,11 +34,11 @@ export const validationGeneral = (values) => {
   // if (!values.reCaptcha) {
   //   errors.reCaptcha = "Please complete the reCaptcha verification";
   // }
-  if (!values.yearsOfExp) {
-    errors.yearsOfExp = "Years of Experience is required*";
-  } else if (!experienceRegex.test(values.yearsOfExp)) {
-    errors.yearsOfExp = "Please enter the valid Years of Experience";
-  }
+  // if (!values.yearsOfExp) {
+  //   errors.yearsOfExp = "Years of Experience is required*";
+  // } else if (!experienceRegex.test(values.yearsOfExp)) {
+  //   errors.yearsOfExp = "Please enter the valid Years of Experience";
+  // }
   if (!values.seatType) {
     errors.seatType = "Please Select Seat Type";
   }

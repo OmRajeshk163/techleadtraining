@@ -126,7 +126,7 @@ const ContactForm = () => {
               )}
             </label>
             <label className={styles.enquiryFormLabel} htmlFor="yearsOfExp">
-              Years of Experience*
+              Years of Experience
               <input
                 id="yearsOfExp"
                 name="yearsOfExp"
@@ -136,11 +136,11 @@ const ContactForm = () => {
                 placeholder="years Of Experience"
                 className={styles.enquiryFormInput}
               />
-              {errors.yearsOfExp && (
+              {/* {errors.yearsOfExp && (
                 <p className={styles.enquiryFormErrorMassage}>
                   {errors.yearsOfExp}
                 </p>
-              )}
+              )} */}
             </label>
             <label className={styles.enquiryFormLabel} htmlFor="location">
               Location
