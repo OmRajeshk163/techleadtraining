@@ -11,14 +11,6 @@ const PriceItem = ({ price, src, title }) => {
           <div className={styles.cardContent}>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <Image src={src} height="48px" width="48px" alt={title} />
-              {/* <div>
-                <input
-                  type="radio"
-                  value={title}
-                  name="price"
-                  style={{ height: "2rem", width: "2rem" }}
-                />
-              </div> */}
             </div>
             <h4 className={styles.priceItemTitle}>{title}</h4>
             <p className={styles.priceItemAmount}>

@@ -26,13 +26,12 @@ const ContactForm = () => {
     useForm(submit, validationGeneral, formState);
 
   async function submit() {
-    alert();
     setFormState("submitting");
     try {
       console.log("values", values);
       //const res = await axios.post(contactFormLink, { ...values });
       // if (res && res.data.success) {
-      //   setFormState("submitted");
+      setFormState("submitted");
       //   setValues({});
       //   logSuccess();
       // }
@@ -166,7 +165,35 @@ const ContactForm = () => {
                 className={styles.enquiryFormInput}
               />
             </label>
-
+            <label className={styles.enquiryFormRadioLabel}>
+              <input
+                type="radio"
+                value="earlyBirdSeats"
+                name="seatType"
+                onChange={handleChange}
+                checked={values.seatType === "earlyBirdSeats"}
+                required
+              />
+              Early Bird
+            </label>
+            <label className={styles.enquiryFormRadioLabel}>
+              <input
+                type="radio"
+                value="regularSeats"
+                name="seatType"
+                onChange={handleChange}
+                checked={values.seatType === "regularSeats"}
+                required
+              />
+              Regular Seats
+            </label>
+            <label className={styles.enquiryFormRadioLabel} htmlFor="seatType">
+              {errors.seatType && (
+                <p className={styles.enquiryFormErrorMassage}>
+                  {errors.seatType}
+                </p>
+              )}
+            </label>
             <div className={styles.submitBtnContainer}>
               {/* <ReCAPTCHA
               sitekey={process.env.NEXT_PUBLIC_SITE_KEY}

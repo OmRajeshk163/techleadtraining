@@ -107,6 +107,18 @@
   display: grid;
 }
 
+.enquiryFormRadioLabel {
+  color: var(--color-Black);
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.enquiryFormRadioLabel input {
+  height: 2rem;
+  width: 2rem;
+}
 .enquiryFormLabel input {
   display: block;
 }
@@ -159,7 +171,9 @@
   color: var(--color-Black);
   font-weight: 300;
 }
-
+.enquiryFormRadioLabel .enquiryFormErrorMassage {
+  margin-top: 0rem;
+}
 .enquiryFormErrorMassage {
   color: var(--color-Red);
   font-size: 14px;
@@ -174,7 +188,12 @@
   font-weight: 500;
   display: grid;
 }
-
+@media screen and (max-width: 401px) {
+  .stairsImage {
+    bottom: -15px;
+    right: 0;
+  }
+}
 @media screen and (max-width: 992px) {
   .contactFormContainer {
     flex-direction: column;

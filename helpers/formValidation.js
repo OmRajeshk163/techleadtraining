@@ -39,6 +39,9 @@ export const validationGeneral = (values) => {
   } else if (!experienceRegex.test(values.yearsOfExp)) {
     errors.yearsOfExp = "Please enter the valid Years of Experience";
   }
+  if (!values.seatType) {
+    errors.seatType = "Please Select Seat Type";
+  }
   return errors;
 };
 
