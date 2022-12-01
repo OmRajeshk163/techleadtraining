@@ -11,27 +11,30 @@ import {
 } from "../../../helpers/formValidation";
 
 import styles from "./contactForm.module.css";
+import { makePayment } from "./helper";
 
 const ContactForm = () => {
-  const [formState, setFormState] = useState("unSubmitted");
+  const [formState, setFormState] = useState("paynow");
 
   const formStates = {
-    unSubmitted: "Submit",
-    submitting: "Submitting...",
-    submitted: "Submitted",
+    paynow: "Pay Now",
+    paying: "Payment Inprogress...",
+    paymentComplete: "Payment Complete",
   };
-  const contactFormLink = "/api/contactForm";
 
   const { values, errors, handleChange, setValues, handleSubmit, setErrors } =
     useForm(submit, validationGeneral, formState);
 
   async function submit() {
-    setFormState("submitting");
+    setFormState("paying");
+    const isSuccess = await makePayment(values.seatType);
+    console.log("isSuccessisSuccess", isSuccess);
     try {
-      console.log("values", values);
+      if (isSuccess) {
+        setFormState("paymentComplete");
+      }
       //const res = await axios.post(contactFormLink, { ...values });
       // if (res && res.data.success) {
-      setFormState("submitted");
       //   setValues({});
       //   logSuccess();
       // }
@@ -168,10 +171,11 @@ const ContactForm = () => {
             <label className={styles.enquiryFormRadioLabel}>
               <input
                 type="radio"
-                value="earlyBirdSeats"
+                // value="earlyBirdSeats"
+                value="1"
                 name="seatType"
                 onChange={handleChange}
-                checked={values.seatType === "earlyBirdSeats"}
+                checked={values.seatType === "1"}
                 required
               />
               Early Bird
@@ -179,10 +183,11 @@ const ContactForm = () => {
             <label className={styles.enquiryFormRadioLabel}>
               <input
                 type="radio"
-                value="regularSeats"
+                // value="regularSeats"
+                value="2"
                 name="seatType"
                 onChange={handleChange}
-                checked={values.seatType === "regularSeats"}
+                checked={values.seatType === "2"}
                 required
               />
               Regular Seats

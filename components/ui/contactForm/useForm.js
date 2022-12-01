@@ -8,10 +8,7 @@ const useForm = (callback, validationGeneral, formState) => {
     if (event) event.preventDefault();
     const validationErrors = validationGeneral(values);
     setErrors(validationErrors);
-    if (
-      Object.keys(validationErrors).length === 0 &&
-      formState === "unSubmitted"
-    ) {
+    if (Object.keys(validationErrors).length === 0 && formState === "paynow") {
       callback();
     }
   };
