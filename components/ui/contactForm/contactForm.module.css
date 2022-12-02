@@ -188,9 +188,79 @@
   font-weight: 500;
   display: grid;
 }
+
+.thankyouContainer {
+  position: relative;
+  padding: 1.5rem;
+  background: var(--color-White);
+}
+.thankyouTitle {
+  font-weight: 700;
+  font-size: 1.56rem;
+  font-family: var(--color-Bubbles3);
+  letter-spacing: 0px;
+}
+.tickIconWrap {
+  width: 2rem;
+  margin: auto;
+  /* border: 1px solid var(--color-CarribianGreen);
+  padding: 1.5rem; */
+  border-radius: 5rem;
+}
+.tickIcon {
+  color: var(--color-LimeGreen);
+  font-size: 3.5rem;
+  font-weight: bolder;
+}
+.greenIcon {
+  color: var(--color-LimeGreen);
+}
+.redIcon {
+  color: var(--color-Red);
+}
+
+.titleWrap {
+  margin: auto;
+  width: 90%;
+  margin-bottom: 1rem;
+}
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
+.crossIcon {
+  color: var(--color-Orange);
+  font-size: 1.5rem;
+}
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  font-size: 2.5rem;
+  padding: 1rem rem;
+  color: var(--color-TrueBlue);
+  font-weight: 500;
+  cursor: pointer;
+}
+.orderDesc {
+  padding: 0.8rem;
+  flex: 50% 1;
+  font-weight: 600;
+  color: var(--color-BrandeisBlue);
+}
+.imageContainer {
+  position: relative;
+  width: 10rem;
+  height: 3rem;
+}
+.orderDescWrap {
+  display: flex;
+  flex-flow: row wrap;
+}
 @media screen and (max-width: 401px) {
   .stairsImage {
-    bottom: -15px;
+    bottom: -30px;
     right: 0;
   }
 }

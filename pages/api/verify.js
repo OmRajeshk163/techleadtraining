@@ -29,12 +29,10 @@ export default async function handler(req, res) {
       .createHmac("sha256", secret)
       .update(body.toString())
       .digest("hex");
-    console.log("sign- " + razorpay_signature);
-    console.log("sign- " + expectedSignature);
     if (expectedSignature === razorpay_signature) {
-      res.status(200).json({ message: "ok" });
+      res.status(200).json({ message: "Payment is Verified and Successful" });
     } else {
-      res.status(403).json({ message: "Failed" });
+      res.status(403).json({ message: "Payment Failed" });
     }
   }
 }

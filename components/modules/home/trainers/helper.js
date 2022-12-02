@@ -17,6 +17,6 @@ Technically, Mitesh has worked on Mobile app development, Full-stack platform de
     name: "Indraneel Rao",
     linkedIn: "",
     designation: "Head of Engineering",
-    desc: `Seasoned Trainer, Solutions architect, technical coachwith depth of exp of dealing with freshers and differentcultures. With over 14 years of experience and a solidfoundation in Object-oriented design and aspects ofwriting clean, maintainable code.`,
+    desc: `Seasoned Trainer, Solutions architect, technical coach with depth of exp of dealing with freshers and differentcultures. With over 14 years of experience and a solidfoundation in Object-oriented design and aspects ofwriting clean, maintainable code.`,
   },
 ];

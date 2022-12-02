@@ -1,53 +1,60 @@
 import axios from "axios";
 
-export const makePayment = async (seatType) => {
-  const res = await initializeRazorpay();
-  if (!res) {
-    alert("Razorpay SDK Failed to load");
-    return;
-  }
-  // Make API call to the serverless API
-  const data = await fetch(`/api/razorpay?seatType=${seatType}`, {
-    method: "POST",
-  }).then((t) => t.json());
-  console.log(data);
-  var options = {
-    key: process.env.RAZORPAY_KEY, // Enter the Key ID generated from the Dashboard
-    name: "Coffeebeans Brewing",
-    currency: data.currency,
-    amount: data.amount,
-    order_id: data.id,
-    description: "Thank you for your test Payment.",
-    image: "/icons/CBColorIcon.svg",
-    handler: async function (response) {
-      //   alert(response.razorpay_payment_id);
-      //   alert(response.razorpay_order_id);
-      //   alert(response.razorpay_signature);
-      try {
-        const verifyRes = await axios.post(`/api/verify`, { response });
-        console.log("theresponseverifyResandstuff", verifyRes);
-        if (verifyRes.status == 200 && verifyRes.data?.message == "ok") {
-          alert("Payment was Successful");
-        }
-        return true;
-      } catch (error) {
-        console.error("verifyRes Error", error);
-        alert("Payment was not Successful");
-        return false;
-      }
-    },
-    // theme: { color: "#99cc33" },
-    // prefill: {
-    //   name: "Coffeebeans Brewing",
-    //   email: "enquiries@coffeebeans.io",
-    //   contact: "9999999999",
-    // },
-  };
-  const paymentObject = new window.Razorpay(options);
-  paymentObject.open();
+// export const makePayment = async (seatType) => {
+//   const res = await initializeRazorpay();
+//   if (!res) {
+//     alert("Razorpay SDK Failed to load");
+//     return;
+//   }
+//   try {
+//     // Make API call to the serverless API
+//     const orderApi = `/api/razorpay?seatType=${seatType}`;
+//     const orderResponse = await fetch(orderApi, { method: "POST" }).then(
+//       (res) => res.json()
+//     );
+//     const handler = async () => {
+//       const verifyRes = await verifyOrder(orderResponse);
+//       if (verifyRes?.status) alert(verifyRes?.message);
+//       else alert(verifyRes?.message);
+//     };
+//     const options = { ...optionObj(orderResponse), handler };
+//     const paymentObject = new window.Razorpay(options);
+//     paymentObject.open();
+//   } catch (error) {
+//     console.log("OrderCreationError", error);
+//     alert("Payment was not Successful");
+//   }
+// };
+
+export const optionObj = (orderResponse, prefills, callback) => ({
+  order_id: orderResponse.id,
+  key: process.env.RAZORPAY_KEY, // Enter the Key ID generated from the Dashboard
+  name: "Coffeebeans Brewing",
+  currency: orderResponse.currency,
+  amount: orderResponse.amount,
+  description: "Enroll now for Tech Session from the Tech Experts.",
+  image: "/icons/CBColorIcon.svg",
+  handler: callback,
+  // theme: { color: "#99cc33" },
+  prefill: prefills,
+});
+
+export const verifyOrder = (response) => {
+  return new Promise(async (resolve) => {
+    try {
+      const verifyRes = await axios.post(`/api/verify`, { response });
+      console.log("theresponseverifyResandstuff", verifyRes);
+      if (verifyRes.status == 200)
+        resolve({ status: true, message: verifyRes.data?.message });
+      else resolve({ status: false, message: "Payment was not Successful" });
+    } catch (error) {
+      console.error("verifyRes Error", error);
+      resolve({ status: false, message: "Payment was not Successful" });
+    }
+  });
 };
 
-const initializeRazorpay = () => {
+export const initializeRazorpay = () => {
   return new Promise((resolve) => {
     const script = document.createElement("script");
     script.src = "https://checkout.razorpay.com/v1/checkout.js";

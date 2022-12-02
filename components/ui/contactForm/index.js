@@ -11,11 +11,23 @@ import {
 } from "../../../helpers/formValidation";
 
 import styles from "./contactForm.module.css";
-import { makePayment } from "./helper";
+import { initializeRazorpay, optionObj, verifyOrder } from "./helper";
+import ThankYouModal from "./ThankYouModal";
+import ModalPopUp from "../Modal/Modal";
 
 const ContactForm = () => {
   const [formState, setFormState] = useState("paynow");
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [orderDetails, setOrderDetails] = useState({
+    orderId: "",
+    paymentId: "",
+    amount: 24999,
+    message: "Payment Failed",
+    status: false,
+    orderId: "wertyuifghjk678ghj",
+    purchase: "Regular Seat",
+    paymentId: "wertyuifghjk678ghj",
+  });
   const formStates = {
     paynow: "Pay Now",
     paying: "Payment Inprogress...",
@@ -27,12 +39,9 @@ const ContactForm = () => {
 
   async function submit() {
     setFormState("paying");
-    const isSuccess = await makePayment(values.seatType);
-    console.log("isSuccessisSuccess", isSuccess);
+    makePayment(values);
     try {
-      if (isSuccess) {
-        setFormState("paymentComplete");
-      }
+      setFormState("paymentComplete");
       //const res = await axios.post(contactFormLink, { ...values });
       // if (res && res.data.success) {
       //   setValues({});
@@ -43,6 +52,62 @@ const ContactForm = () => {
     }
   }
 
+  const makePayment = async (state) => {
+    const { name = "", phoneNumber = "", email, seatType = 1 } = state;
+    const res = await initializeRazorpay();
+    if (!res) {
+      alert("Razorpay SDK Failed to load");
+      return;
+    }
+    try {
+      // Make API call to the serverless API
+      const orderApi = `/api/razorpay?seatType=${seatType}`;
+      const orderResponse = await fetch(orderApi, { method: "POST" }).then(
+        (res) => res.json()
+      );
+
+      const handler = async (response) => {
+        const verifyRes = await verifyOrder(response);
+        setOrderDetails((prev) => ({
+          ...prev,
+          orderId: orderResponse.id,
+          amount: orderResponse.amount,
+          purchase: seatType == 1 ? "Early Bird" : "Regular Seat",
+          paymentId: response.razorpay_payment_id,
+        }));
+
+        console.log("orderReverifyRessponse", verifyRes);
+
+        if (verifyRes?.status) {
+          // alert(verifyRes?.message);
+          setOrderDetails((prev) => ({
+            ...prev,
+            status: verifyRes.status,
+            message: verifyRes?.message,
+          }));
+          setIsModalOpen(true);
+        } else {
+          setOrderDetails((prev) => ({
+            ...prev,
+            status: verifyRes.status,
+            message: verifyRes?.message,
+          }));
+          setIsModalOpen(true);
+        }
+      };
+      const prefills = { name: name, email: email, contact: phoneNumber };
+      const options = { ...optionObj(orderResponse, prefills, handler) };
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      console.log("OrderCreationError", error);
+      alert("Payment was not Successful");
+    }
+  };
+
+  const modalCloseHandler = () => {
+    setIsModalOpen(false);
+  };
   const handleCaptcha = (value) => {
     setValues((prevvalues) => ({
       ...prevvalues,
@@ -225,6 +290,14 @@ const ContactForm = () => {
         </div> */}
         </div>
       </section>
+      {isModalOpen && (
+        <ModalPopUp isOpen={isModalOpen}>
+          <ThankYouModal
+            orderDetails={orderDetails}
+            onClose={modalCloseHandler}
+          />
+        </ModalPopUp>
+      )}
     </>
   );
 };
