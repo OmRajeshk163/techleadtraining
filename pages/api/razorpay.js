@@ -30,7 +30,7 @@ export default async function handler(req, res) {
       res.status(200).json({
         id: response.id,
         currency: response.currency,
-        amount: response.amount,
+        amount: Number(response.amount) / 100,
       });
     } catch (err) {
       console.log(err);
