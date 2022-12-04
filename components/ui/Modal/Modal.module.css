@@ -40,3 +40,8 @@
 .overlayBaseBeforeClose {
   opacity: 0;
 }
+@media screen and (max-width: 725px) {
+  .modalBase {
+    width: 90%;
+  }
+}

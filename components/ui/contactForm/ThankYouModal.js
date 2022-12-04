@@ -41,14 +41,20 @@ const ThankYouModal = (props) => {
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div className={styles.orderDesc}>{`Purchase : ${purchase}`}</div>
         <div className={styles.orderDesc}>
-          <span>Amount : &#8377;</span>
-          {` ${amount}`}
+          <span>Amount : </span>
+          <span style={{ whiteSpace: "nowrap" }}>&#8377; {` ${amount}`}</span>
         </div>
       </div>
       {!status && (
         <div className={styles.orderDescWrap}>
-          <div className={styles.orderDesc}>{`Order Id : ${orderId}`}</div>
-          <div className={styles.orderDesc}>{`Payment Id : ${paymentId}`}</div>
+          <div className={styles.orderDesc}>
+            <span>Order Id :</span>
+            <span>{`${orderId}`}</span>
+          </div>
+          <div className={styles.orderDesc}>
+            <span>Payment Id : </span>
+            <span>{`${paymentId}`}</span>
+          </div>
         </div>
       )}
     </div>
