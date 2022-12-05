@@ -39,7 +39,7 @@ const ContactForm = () => {
 
   async function submit() {
     setFormState("paying");
-    makePayment(values);
+    //makePayment(values);
     try {
       setFormState("paymentComplete");
       //const res = await axios.post(contactFormLink, { ...values });
@@ -277,9 +277,9 @@ const ContactForm = () => {
                 {errors.reCaptcha}
               </p>
             )} */}
-              <button type="submit" className={styles.enquiryFormSubmitBtn}>
+              {/* <button type="submit" className={styles.enquiryFormSubmitBtn}>
                 Pay Now
-              </button>
+              </button> */}
             </div>
           </form>
           {/* <div className={styles.websiteTermAndPolicy}>
